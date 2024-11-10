@@ -5,8 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DctTestAssignment"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
-    </Grid>
+        Title="TestAssingnment" Height="450" Width="800">
+    <DockPanel>
+        <StackPanel Name="NavigateButtons" Orientation="Horizontal" DockPanel.Dock="Top" Background="LightGray">
+            <Button Content="Currencies" Width="100" Click="NavigateCurrencies"/>
+            <Button Content="Convert" Width="100" Click="NavigateConvert"/>
+        </StackPanel>
+        <Frame Name="MainFrame" NavigationUIVisibility="Hidden" />
+    </DockPanel>
 </Window>
