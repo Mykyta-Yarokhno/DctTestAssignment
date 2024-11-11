@@ -26,7 +26,7 @@
         </StackPanel>
 
         <GroupBox Header="Available Markets" Grid.Row="1" Margin="10">
-            <ListView ItemsSource="{Binding Markets}">
+            <ListView ItemsSource="{Binding CurrencyMarkets}">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Market" DisplayMemberBinding="{Binding MarketName}"/>
