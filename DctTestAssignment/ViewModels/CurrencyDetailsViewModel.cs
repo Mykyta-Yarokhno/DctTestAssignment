@@ -1,14 +1,13 @@
 ﻿using DctTestAssignment.Models;
-using Newtonsoft.Json.Linq;
+using DctTestAssignment.Services;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Net.Http;
 using System.Windows.Input;
 
 namespace DctTestAssignment.ViewModels
 {
-    class CurrencyDetailsViewModel: INotifyPropertyChanged
+    public class CurrencyDetailsViewModel: INotifyPropertyChanged
     {
         private readonly CoinCapApiService _cryptoService;
 
@@ -19,10 +18,14 @@ namespace DctTestAssignment.ViewModels
         public decimal PriceChange { get; set; }
         public ObservableCollection<CurrencyMarketInfo> CurrencyMarkets { get; set; }
 
+        public CryptoCurrency SelectedCurrency { get; }
+
         public ICommand OpenMarketLinkCommand { get; }
 
         public CurrencyDetailsViewModel(CryptoCurrency selectedCurrency)
         {
+            SelectedCurrency = selectedCurrency;
+
             _cryptoService = new CoinCapApiService();
             CurrencyMarkets = new ObservableCollection<CurrencyMarketInfo>();
 
@@ -32,19 +35,14 @@ namespace DctTestAssignment.ViewModels
             Volume = selectedCurrency.Quote.USD.Volume24h;
             PriceChange = selectedCurrency.Quote.USD.PercentChange24h;
 
-            //Markets = new ObservableCollection<MarketInfo>
-            //{
-            //    new MarketInfo { MarketName = "Binance", MarketPrice = Price, MarketVolume = Volume / 2, MarketLink = "https://www.binance.com" },
-            //    new MarketInfo { MarketName = "Coinbase", MarketPrice = Price + 50, MarketVolume = Volume / 3, MarketLink = "https://www.coinbase.com" }
-            //};
-            GetCurrencyMarkets(selectedCurrency.Slug);
+            GetCurrencyMarkets(selectedCurrency.Symbol);
 
             OpenMarketLinkCommand = new RelayCommand(OpenMarketLink);            
         }
 
-        private async void GetCurrencyMarkets(string currencyId, string currencyQuote = "USD")
+        private async void GetCurrencyMarkets(string currencySymbol, string currencyQuote = "USD")
         {
-            var markets = await _cryptoService.GetCurrencyMarkets(currencyId);
+            var markets = await _cryptoService.GetCurrencyMarkets(currencySymbol, currencyQuote);
 
             foreach (var market in markets)
             {

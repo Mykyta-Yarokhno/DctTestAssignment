@@ -15,6 +15,9 @@ namespace DctTestAssignment.Models
     [DataContract]
     public class CurrencyMarketInfo
     {
+        [DataMember(Name = "exchangeId")]
+        public string MarketId { get; set; }
+
         [DataMember(Name = "baseId")]
         public string CurrencyBaseId { get; set; }
 
@@ -27,9 +30,6 @@ namespace DctTestAssignment.Models
         [DataMember(Name = "quoteId")]
         public string CurrencyQuoteId { get; set; }
 
-        [DataMember(Name = "exchangeId")]
-        public string MarketName { get; set; }
-
         [DataMember(Name = "priceUsd")]
         public decimal MarketPrice { get; set; }
 
@@ -37,6 +37,23 @@ namespace DctTestAssignment.Models
         public decimal MarketVolume { get; set; }
 
         [IgnoreDataMember]
+        public string MarketName { get; set; }
+
+        [IgnoreDataMember]
+        public string MarketLink { get; set; }
+    }
+
+
+    [DataContract]
+    public class ExchangeInfo
+    {
+        [DataMember(Name = "exchangeId")]
+        public string MarketId { get; set; }
+
+        [DataMember(Name = "name")]
+        public string MarketName { get; set; }
+
+        [DataMember(Name = "exchangeUrl")]
         public string MarketLink { get; set; }
     }
 }

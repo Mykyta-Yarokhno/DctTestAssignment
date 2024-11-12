@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 using System.Net.Http;
 
 
-namespace DctTestAssignment
+namespace DctTestAssignment.Services
 {
     //a31fd0a1-c143-414f-8ece-0d89c066f48f
     public class CoinMarketCapApiService

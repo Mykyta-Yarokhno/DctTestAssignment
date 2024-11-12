@@ -1,18 +1,17 @@
-﻿using DctTestAssignment.Models;
+﻿using DctTestAssignment.Base;
+using DctTestAssignment.Models;
+using DctTestAssignment.Services;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 
 namespace DctTestAssignment.ViewModels
 {
-    public  class MainViewModel: INotifyPropertyChanged
+    public  class CurrenciesViewModel: ViewModelBase
     {
         private readonly CoinMarketCapApiService _cryptoService;
 
-        public event PropertyChangedEventHandler? PropertyChanged;
-
         public ObservableCollection<CryptoCurrency> TopCurrencies { get; set; }
 
-        public MainViewModel()
+        public CurrenciesViewModel()
         {
             _cryptoService = new CoinMarketCapApiService();
             TopCurrencies = new ObservableCollection<CryptoCurrency>();
@@ -28,5 +27,6 @@ namespace DctTestAssignment.ViewModels
                 TopCurrencies.Add(currency);
             }
         }
+
     }
 }
