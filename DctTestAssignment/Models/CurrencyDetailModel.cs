@@ -33,8 +33,8 @@ namespace DctTestAssignment.Models
         [DataMember(Name = "priceUsd")]
         public decimal MarketPrice { get; set; }
 
-        [DataMember(Name = "volumePercent")]
-        public decimal MarketVolume { get; set; }
+        [DataMember(Name = "percentExchangeVolume")]
+        public decimal? MarketVolume { get; set; }
 
         [IgnoreDataMember]
         public string MarketName { get; set; }

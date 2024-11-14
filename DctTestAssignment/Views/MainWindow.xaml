@@ -7,26 +7,80 @@
         mc:Ignorable="d"
         Title="TestAssingnment" Height="450" Width="800">
     <DockPanel>
-        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Background="LightGray">
-            <Button Content="Currencies" Width="100" Command="{Binding NavigateToCurrenciesPageCommand}" />
-            <Button Content="Convert" Width="100" Command="{Binding NavigateConvertCommand}" />
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Background="Transparent">
+            <Button Content="Currencies" Width="100" Command="{Binding NavigateToCurrenciesPageCommand}" Cursor="Hand">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="LightGray"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Background="{TemplateBinding Background}" 
+                                    BorderBrush="{TemplateBinding BorderBrush}" 
+                                    CornerRadius="5"
+                                    Margin="2" Padding="5">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
 
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="DarkGray"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+            <Button Content="Convert" Width="100" Command="{Binding NavigateConvertCommand}" Cursor="Hand">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="LightGray"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Background="{TemplateBinding Background}" 
+                                    BorderBrush="{TemplateBinding BorderBrush}" 
+                                    CornerRadius="5"
+                                    Margin="2" Padding="5"> 
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="DarkGray"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
             <ItemsControl ItemsSource="{Binding NavigateButtons}">
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <StackPanel Orientation="Horizontal" />
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border CornerRadius="5" Background="DarkGray" Margin="2" Padding="5">
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Content="{Binding CurrencyName}" Width="100" Command="{Binding NavigateCommand}"
+                                            BorderBrush="Transparent"
+                                            Background="Transparent"/>
 
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <Button Content="{Binding CurrencyName}" Command="{Binding NavigateCommand}" Width="100"/>
-                            <Button Content="X" Command="{Binding RemoveCommand}" Width="30" Margin="5,0,0,0"/>
-                        </StackPanel>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
+                                    <Button Content="X" Command="{Binding RemoveCommand}" Width="20" Height="20"
+                                            BorderBrush="Transparent"
+                                            Background="IndianRed"/>
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
         </StackPanel>
 
         <ContentControl Content="{Binding CurrentPage}" />

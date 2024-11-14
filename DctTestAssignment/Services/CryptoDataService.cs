@@ -7,10 +7,10 @@ namespace DctTestAssignment.Services
         private readonly CoinCapApiService _coinCapApiService;
         private readonly CoinMarketCapApiService _coinMarketCapApiService;
 
-        public CryptoDataService(CoinCapApiService coinCapApiService, CoinMarketCapApiService coinMarketCapApiService)
+        public CryptoDataService()
         {
-            _coinCapApiService = coinCapApiService;
-            _coinMarketCapApiService = coinMarketCapApiService;
+            _coinCapApiService = new CoinCapApiService();
+            _coinMarketCapApiService = new CoinMarketCapApiService();
         }
 
         public async Task<List<CryptoCurrency>> GetTopCurrenciesAsync()
@@ -18,9 +18,9 @@ namespace DctTestAssignment.Services
             return await _coinMarketCapApiService.GetTopCurrenciesAsync();
         }
 
-        //public async Task<List<CurrencyMarketInfo>?> GetCurrencyMarketsAsync(string currencyId)
-        //{
-        //    return await _coinCapApiService.GetCurrencyMarkets(currencyId);
-        //}
+        public async Task<List<CurrencyMarketInfo>?> GetCurrencyMarketsAsync(string currencyId, string currencyQuote)
+        {
+            return await _coinCapApiService.GetCurrencyMarkets(currencyId, currencyQuote);
+        }
     }
 }

@@ -18,7 +18,7 @@ namespace DctTestAssignment.Services
 
         public async Task<List<CryptoCurrency>> GetTopCurrenciesAsync()
         {
-            var response = await _httpClient.GetStringAsync("https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?limit=20");
+            var response = await _httpClient.GetStringAsync("https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?limit=10");
             var result = JsonConvert.DeserializeObject<ApiResponse>(response);
             return result.Data;
         }

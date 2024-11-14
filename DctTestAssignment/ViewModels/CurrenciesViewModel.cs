@@ -7,20 +7,20 @@ namespace DctTestAssignment.ViewModels
 {
     public  class CurrenciesViewModel: ViewModelBase
     {
-        private readonly CoinMarketCapApiService _cryptoService;
+        private readonly CryptoDataService _cryptoDataService;
 
         public ObservableCollection<CryptoCurrency> TopCurrencies { get; set; }
 
         public CurrenciesViewModel()
         {
-            _cryptoService = new CoinMarketCapApiService();
+            _cryptoDataService = new CryptoDataService();
             TopCurrencies = new ObservableCollection<CryptoCurrency>();
             LoadTopCurrencies();
         }
 
         private async void LoadTopCurrencies()
         {
-            var currencies = await _cryptoService.GetTopCurrenciesAsync();
+            var currencies = await _cryptoDataService.GetTopCurrenciesAsync();
             TopCurrencies.Clear();
             foreach (var currency in currencies)
             {

@@ -1,15 +1,17 @@
-﻿using DctTestAssignment.Models;
+﻿using DctTestAssignment.Base;
+using DctTestAssignment.Models;
 using DctTestAssignment.Services;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Windows;
 using System.Windows.Input;
 
 namespace DctTestAssignment.ViewModels
 {
-    public class CurrencyDetailsViewModel: INotifyPropertyChanged
+    public class CurrencyDetailsViewModel: ViewModelBase
     {
-        private readonly CoinCapApiService _cryptoService;
+        private readonly CryptoDataService _cryptoDataService;
 
         public string Name { get; set; }
         public string Symbol { get; set; }
@@ -26,7 +28,7 @@ namespace DctTestAssignment.ViewModels
         {
             SelectedCurrency = selectedCurrency;
 
-            _cryptoService = new CoinCapApiService();
+            _cryptoDataService = new CryptoDataService();
             CurrencyMarkets = new ObservableCollection<CurrencyMarketInfo>();
 
             Name = selectedCurrency.Name;
@@ -42,7 +44,7 @@ namespace DctTestAssignment.ViewModels
 
         private async void GetCurrencyMarkets(string currencySymbol, string currencyQuote = "USD")
         {
-            var markets = await _cryptoService.GetCurrencyMarkets(currencySymbol, currencyQuote);
+            var markets = await _cryptoDataService.GetCurrencyMarketsAsync(currencySymbol, currencyQuote);
 
             foreach (var market in markets)
             {
@@ -51,18 +53,27 @@ namespace DctTestAssignment.ViewModels
             }
         }
 
-        private void OpenMarketLink(object link)
+        private void OpenMarketLink(object? link)
         {
-            if (link is string url)
+            if (link is string url && Uri.IsWellFormedUriString(url, UriKind.Absolute))
             {
-                Process.Start(new ProcessStartInfo
+                try
                 {
-                    FileName = url,
-                    UseShellExecute = true
-                });
+                    Process.Start(new ProcessStartInfo
+                    {
+                        FileName = url,
+                        UseShellExecute = true 
+                    });
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Failed to open link: {ex.Message}");
+                }
+            }
+            else
+            {
+                MessageBox.Show("The provided URL is not valid.");
             }
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

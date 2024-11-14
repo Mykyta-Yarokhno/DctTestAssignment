@@ -29,12 +29,13 @@
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Market" DisplayMemberBinding="{Binding MarketName}"/>
-                        <GridViewColumn Header="Price" DisplayMemberBinding="{Binding MarketPrice}"/>
-                        <GridViewColumn Header="Volume" DisplayMemberBinding="{Binding MarketVolume}"/>
+                        <GridViewColumn Header="Price in USD" DisplayMemberBinding="{Binding MarketPrice}"/>
                         <GridViewColumn Header="Link">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Content="Go to Market" Command="{Binding OpenMarketLinkCommand}" CommandParameter="{Binding MarketLink}" />
+                                    <Button Content="Go to Market" 
+                                            Command="{Binding DataContext.OpenMarketLinkCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" 
+                                            CommandParameter="{Binding MarketLink}" />
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>

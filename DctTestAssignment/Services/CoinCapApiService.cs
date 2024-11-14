@@ -17,6 +17,7 @@ namespace DctTestAssignment.Services
         {
             var response = await _httpClient.GetStringAsync($"https://api.coincap.io/v2/markets?baseSymbol={currencySymbol}&quoteSymbol={currencyQuote}");
             var responseExchanges = await _httpClient.GetStringAsync($"https://api.coincap.io/v2/exchanges");
+
             var result = JsonConvert.DeserializeObject<CoinCapApiResponse>(response)?.Data;
             var resultExchanges = JsonConvert.DeserializeObject<CoinCapApiResponseExchange>(responseExchanges)?.Data;
 
@@ -30,7 +31,7 @@ namespace DctTestAssignment.Services
                 currencyMarket.MarketName = exchange.MarketName;
             }
 
-            return result;
+            return result.Where(currencyMarket => currencyMarket.MarketName != null).ToList();
         }
     }
 
