@@ -35,10 +35,13 @@ namespace DctTestAssignment
         {
             services.AddSingleton<CoinCapApiService>();
             services.AddSingleton<CoinMarketCapApiService>();
+            services.AddSingleton<CoinGeckoApiService>();
             services.AddSingleton<CryptoDataService>();
-
+            
             services.AddScoped<MainWindowViewModel>();
             services.AddTransient(typeof(MainWindow));
+
+            
         }
     }
 
