@@ -1,4 +1,4 @@
-# DctTestAssignment
+# CryptoCurrenciesInfo
 
 ## Functionality
 
