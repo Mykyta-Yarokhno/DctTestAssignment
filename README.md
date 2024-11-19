@@ -1,4 +1,4 @@
-# CryptoCurrenciesInfo
+# CryptoCurrenciesInfoApp
 
 ## Functionality
 
