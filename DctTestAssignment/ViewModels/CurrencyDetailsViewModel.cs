@@ -34,13 +34,14 @@ namespace DctTestAssignment.ViewModels
             _cryptoDataService = new CryptoDataService();
             CurrencyMarkets = new ObservableCollection<CurrencyMarketInfo>();
             CandleStickPlotModel = new PlotModel { Title = "Price Chart" };
-            LoadCandleStickChart();
+
+            LoadCandleStickChart(selectedCurrency.Id);
 
             Name = selectedCurrency.Name;
             Symbol = selectedCurrency.Symbol;
-            Price = selectedCurrency.Quote.USD.Price;
-            Volume = selectedCurrency.Quote.USD.Volume24h;
-            PriceChange = selectedCurrency.Quote.USD.PercentChange24h;
+            Price = selectedCurrency.Price;
+            Volume = selectedCurrency.Volume;
+            PriceChange = selectedCurrency.PercentChange24h;
 
             GetCurrencyMarkets(selectedCurrency.Symbol);
 
@@ -81,7 +82,7 @@ namespace DctTestAssignment.ViewModels
             }
         }
 
-        private async void LoadCandleStickChart(string coinId = "binancecoin", string vsCurrency = "usd", int days = 7)
+        private async void LoadCandleStickChart(string coinId, string vsCurrency = "usd", int days = 7)
         {
             var rawCandles = await _cryptoDataService.GetOHLCDataAsync(coinId, vsCurrency, days);
 

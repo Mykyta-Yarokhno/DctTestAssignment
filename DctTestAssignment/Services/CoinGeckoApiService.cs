@@ -11,6 +11,13 @@ namespace DctTestAssignment.Services
         public CoinGeckoApiService()
         {
             _httpClient = new HttpClient();
+            _httpClient.DefaultRequestHeaders.Add("User-Agent", "DctTestAssignment");
+        }
+        public async Task<List<CryptoCurrency>> GetTopCurrenciesAsync()
+        {
+            var response = await _httpClient.GetStringAsync("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&per_page=10&page=1");
+            var result = JsonConvert.DeserializeObject<List<CryptoCurrency>>(response);
+            return result;
         }
 
         public async Task<List<CurrencyHistoricalPriceData>> GetOHLCDataAsync(string coinId, string vsCurrency, int days)

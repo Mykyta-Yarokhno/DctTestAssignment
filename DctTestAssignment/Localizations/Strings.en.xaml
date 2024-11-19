@@ -1,0 +1,24 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <sys:String x:Key="HeaderName">Name</sys:String>
+    <sys:String x:Key="HeaderSymbol">Symbol</sys:String>
+    <sys:String x:Key="HeaderPrice">Price</sys:String>
+    <sys:String x:Key="HeaderMoreInformation">More information</sys:String>
+    
+    <sys:String x:Key="ButtonDetails">Details</sys:String>
+    <sys:String x:Key="ButtonSearch">Search</sys:String>
+    <sys:String x:Key="ButtonEnglish">English</sys:String>
+    <sys:String x:Key="ButtonUkranian">Ukranian</sys:String>
+    <sys:String x:Key="ButtonCurrencies">Currencies</sys:String>
+    <sys:String x:Key="ButtonConvert">Convert</sys:String>
+    
+    <sys:String x:Key="TitleText">Test Assingnment</sys:String>
+    
+    <sys:String x:Key="TextVolume">Volume</sys:String>
+    <sys:String x:Key="TextPriceChange">Price Change (24h)</sys:String>
+    <sys:String x:Key="TextConvertedAmount">Converted Amount:</sys:String>
+
+    <sys:String x:Key="FromCurrency">From Currency (Symbol):</sys:String>
+    <sys:String x:Key="ToCurrency">To Currency (Symbol):</sys:String>
+</ResourceDictionary>

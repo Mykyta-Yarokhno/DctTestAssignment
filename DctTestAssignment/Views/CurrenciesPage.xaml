@@ -12,13 +12,13 @@
                   MouseDoubleClick="ListView_MouseDoubleClick">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" />
-                    <GridViewColumn Header="Symbol" DisplayMemberBinding="{Binding Symbol}" />
-                    <GridViewColumn Header="Price" DisplayMemberBinding="{Binding Quote.USD.Price}" />
-                    <GridViewColumn Header="More information">
+                    <GridViewColumn Header="{DynamicResource HeaderName}" DisplayMemberBinding="{Binding Name}" />
+                    <GridViewColumn Header="{DynamicResource HeaderSymbol}" DisplayMemberBinding="{Binding Symbol}" />
+                    <GridViewColumn Header="{DynamicResource HeaderPrice}" DisplayMemberBinding="{Binding Price}" />
+                    <GridViewColumn Header="{DynamicResource HeaderMoreInformation}">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="Details"  Width="80" Click="DetailsButton_Click"/>
+                                <Button Content="{DynamicResource ButtonDetails}"  Width="80" Click="DetailsButton_Click"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -29,8 +29,8 @@
         <Grid HorizontalAlignment="Right" VerticalAlignment="Top">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <TextBox x:Name="SearchBox" Width="150" Height="22"/>
-                
-                <Button Content="Search" Width="80" Height="22" Click="SearchButton_Click"/>
+
+                <Button Content="{DynamicResource ButtonSearch}" Width="80" Height="22" Click="SearchButton_Click"/>
             </StackPanel>
         </Grid>
     </Grid>

@@ -36,7 +36,7 @@ namespace DctTestAssignment.ViewModels
             NavigateButtons = new ObservableCollection<ButtonViewModel>();
 
             NavigateToCurrenciesPageCommand = new RelayCommand(NavigateToCurrenciesPage);
-            NavigateConvertCommand = new RelayCommand(NavigateConvert);
+            NavigateConvertCommand = new RelayCommand(NavigateToConvertPage);
             OpenCurrencyDetailsCommand = new RelayCommand<CryptoCurrency>(NavigateToCurrencyDetailsPage);
 
             NavigateToCurrenciesPage();
@@ -49,11 +49,11 @@ namespace DctTestAssignment.ViewModels
             CurrentPage = currenciesPage;
         }
 
-        private void NavigateConvert()
+        private void NavigateToConvertPage()
         {
-            var currenciesPage = new CurrenciesPage(new CurrenciesViewModel(), OpenCurrencyDetailsCommand);
-            _navigationStack.Push(currenciesPage);
-            CurrentPage = currenciesPage;
+            var convertPage = new ConvertPage(new ConvertViewModel());
+            _navigationStack.Push(convertPage);
+            CurrentPage = convertPage;
         }
 
         private void NavigateToCurrencyDetailsPage(CryptoCurrency selectedCurrency)
