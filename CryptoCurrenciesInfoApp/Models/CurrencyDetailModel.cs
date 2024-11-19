@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace DctTestAssignment.Models
+namespace CryptoCurrenciesInfoApp.Models
 {
     public class CurrencyDetailModel
     {

@@ -1,6 +1,6 @@
 ﻿using System.Windows.Input;
 
-namespace DctTestAssignment
+namespace CryptoCurrenciesInfoApp
 {
     public class RelayCommand : ICommand
     {
@@ -42,7 +42,7 @@ namespace DctTestAssignment
             _canExecute = canExecute;
         }
 
-        public bool CanExecute(object? parameter) => _canExecute == null || (parameter is T t && _canExecute(t));
+        public bool CanExecute(object? parameter) => _canExecute == null || parameter is T t && _canExecute(t);
 
         public void Execute(object? parameter)
         {

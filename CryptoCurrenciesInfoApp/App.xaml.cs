@@ -1,5 +1,5 @@
-﻿using DctTestAssignment.Services;
-using DctTestAssignment.ViewModels;
+﻿using CryptoCurrenciesInfoApp.Services;
+using CryptoCurrenciesInfoApp.ViewModels;
 using DctTestAssignment.Views;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

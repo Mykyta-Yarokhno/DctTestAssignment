@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 
 
-namespace DctTestAssignment.Base
+namespace CryptoCurrenciesInfoApp.Base
 {
     public class ViewModelBase : INotifyPropertyChanged
     {

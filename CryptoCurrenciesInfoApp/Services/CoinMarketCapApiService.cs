@@ -1,10 +1,10 @@
-﻿using DctTestAssignment.Models;
+﻿using CryptoCurrenciesInfoApp.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Net.Http;
 
 
-namespace DctTestAssignment.Services
+namespace CryptoCurrenciesInfoApp.Services
 {
     //a31fd0a1-c143-414f-8ece-0d89c066f48f
     public class CoinMarketCapApiService

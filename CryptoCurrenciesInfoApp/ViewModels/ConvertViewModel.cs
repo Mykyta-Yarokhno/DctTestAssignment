@@ -1,12 +1,9 @@
-﻿using DctTestAssignment.Base;
-using DctTestAssignment.Services;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using System.Windows.Input;
+﻿using CryptoCurrenciesInfoApp.Base;
+using CryptoCurrenciesInfoApp.Services;
 
-namespace DctTestAssignment.ViewModels
+namespace CryptoCurrenciesInfoApp.ViewModels
 {
-    public class ConvertViewModel: ViewModelBase
+    public class ConvertViewModel : ViewModelBase
     {
         private readonly CryptoDataService _cryptoDataService;
         private decimal _amount;

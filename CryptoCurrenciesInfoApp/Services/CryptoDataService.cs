@@ -1,6 +1,6 @@
-﻿using DctTestAssignment.Models;
+﻿using CryptoCurrenciesInfoApp.Models;
 
-namespace DctTestAssignment.Services
+namespace CryptoCurrenciesInfoApp.Services
 {
     public class CryptoDataService
     {

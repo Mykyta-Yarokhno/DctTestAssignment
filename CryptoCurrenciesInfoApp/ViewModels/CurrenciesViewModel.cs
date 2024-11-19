@@ -1,11 +1,11 @@
-﻿using DctTestAssignment.Base;
-using DctTestAssignment.Models;
-using DctTestAssignment.Services;
+﻿using CryptoCurrenciesInfoApp.Base;
+using CryptoCurrenciesInfoApp.Models;
+using CryptoCurrenciesInfoApp.Services;
 using System.Collections.ObjectModel;
 
-namespace DctTestAssignment.ViewModels
+namespace CryptoCurrenciesInfoApp.ViewModels
 {
-    public  class CurrenciesViewModel: ViewModelBase
+    public class CurrenciesViewModel : ViewModelBase
     {
         private readonly CryptoDataService _cryptoDataService;
 

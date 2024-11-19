@@ -1,4 +1,4 @@
-﻿using DctTestAssignment.ViewModels;
+﻿using CryptoCurrenciesInfoApp.ViewModels;
 using System.Windows.Controls;
 
 namespace DctTestAssignment.Views

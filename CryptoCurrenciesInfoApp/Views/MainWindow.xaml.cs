@@ -1,4 +1,4 @@
-﻿using DctTestAssignment.ViewModels;
+﻿using CryptoCurrenciesInfoApp.ViewModels;
 using Microsoft.VisualBasic;
 using System.Globalization;
 using System.Windows;

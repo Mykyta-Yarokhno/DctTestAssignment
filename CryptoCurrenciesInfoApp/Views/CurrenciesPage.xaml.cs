@@ -1,5 +1,5 @@
-﻿using DctTestAssignment.Models;
-using DctTestAssignment.ViewModels;
+﻿using CryptoCurrenciesInfoApp.Models;
+using CryptoCurrenciesInfoApp.ViewModels;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;

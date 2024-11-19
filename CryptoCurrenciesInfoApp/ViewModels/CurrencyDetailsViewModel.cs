@@ -1,6 +1,6 @@
-﻿using DctTestAssignment.Base;
-using DctTestAssignment.Models;
-using DctTestAssignment.Services;
+﻿using CryptoCurrenciesInfoApp.Base;
+using CryptoCurrenciesInfoApp.Models;
+using CryptoCurrenciesInfoApp.Services;
 using OxyPlot;
 using OxyPlot.Axes;
 using OxyPlot.Series;
@@ -9,9 +9,9 @@ using System.Diagnostics;
 using System.Windows;
 using System.Windows.Input;
 
-namespace DctTestAssignment.ViewModels
+namespace CryptoCurrenciesInfoApp.ViewModels
 {
-    public class CurrencyDetailsViewModel: ViewModelBase
+    public class CurrencyDetailsViewModel : ViewModelBase
     {
         private readonly CryptoDataService _cryptoDataService;
         public PlotModel CandleStickPlotModel { get; private set; }
@@ -45,7 +45,7 @@ namespace DctTestAssignment.ViewModels
 
             GetCurrencyMarkets(selectedCurrency.Symbol);
 
-            OpenMarketLinkCommand = new RelayCommand(OpenMarketLink);            
+            OpenMarketLinkCommand = new RelayCommand(OpenMarketLink);
         }
 
         private async void GetCurrencyMarkets(string currencySymbol, string currencyQuote = "USD")
@@ -54,7 +54,7 @@ namespace DctTestAssignment.ViewModels
 
             foreach (var market in markets)
             {
-                if(market.CurrencyQuoteSymbol == currencyQuote)
+                if (market.CurrencyQuoteSymbol == currencyQuote)
                     CurrencyMarkets.Add(market);
             }
         }
@@ -68,7 +68,7 @@ namespace DctTestAssignment.ViewModels
                     Process.Start(new ProcessStartInfo
                     {
                         FileName = url,
-                        UseShellExecute = true 
+                        UseShellExecute = true
                     });
                 }
                 catch (Exception ex)
@@ -118,11 +118,11 @@ namespace DctTestAssignment.ViewModels
             var series = new CandleStickSeries
             {
                 ItemsSource = candles,
-                DataFieldX = "Timestamp", 
-                DataFieldHigh = "High",   
-                DataFieldLow = "Low",      
-                DataFieldOpen = "Open",    
-                DataFieldClose = "Close",  
+                DataFieldX = "Timestamp",
+                DataFieldHigh = "High",
+                DataFieldLow = "Low",
+                DataFieldOpen = "Open",
+                DataFieldClose = "Close",
                 Title = "Candles"
             };
 

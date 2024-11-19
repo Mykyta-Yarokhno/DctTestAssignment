@@ -1,12 +1,12 @@
-﻿using DctTestAssignment.Base;
-using DctTestAssignment.Models;
+﻿using CryptoCurrenciesInfoApp.Base;
+using CryptoCurrenciesInfoApp.Models;
 using DctTestAssignment.Views;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 
-namespace DctTestAssignment.ViewModels
+namespace CryptoCurrenciesInfoApp.ViewModels
 {
-    public  class MainWindowViewModel: ViewModelBase
+    public class MainWindowViewModel : ViewModelBase
     {
         public ICommand NavigateToCurrenciesPageCommand { get; }
         public ICommand NavigateConvertCommand { get; }
@@ -78,7 +78,7 @@ namespace DctTestAssignment.ViewModels
             if (_navigationStack.Count > 1)
             {
                 _navigationStack.Pop();
-                CurrentPage = _navigationStack.Peek(); 
+                CurrentPage = _navigationStack.Peek();
                 NavigateButtons.Remove(buttonViewModel);
             }
         }
